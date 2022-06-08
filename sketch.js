@@ -1,4 +1,4 @@
-var background, human
+var background, human, invisibleGround
 
 
 function preload(){
@@ -15,6 +15,10 @@ function preload(){
 //ANIMATIONS
   walking = loadAnimation("assets/walking1.png", "assets/walking2.png", "assets/walking3.png")
   collided = loadAnimation("assets/fallover1.png","assets/fallover2.png")
+
+
+invisibleGround = createSprite(500,200,1000,10);
+invisibleGround.visible = false;
 }
 
 function setup(){
@@ -26,6 +30,10 @@ human.scale = 0.6
 }
 
 function draw(){
+
+if(keyDown("space")&& human.y >= 100) {
+    human.velocityY = -12;
+}
 
   drawSprites()
 }
